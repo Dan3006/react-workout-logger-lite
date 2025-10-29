@@ -21,16 +21,67 @@ function SetForm({ onAddSet }) {
 
   return (
     <div>
-      <label>Exercise</label>
-      <input value={exercise} onChange={(e) => setExercise(e.target.value)} />
+      <label style={{ display: 'block', marginTop: '10px', color: '#aaa' }} >Exercise</label>
+      <input
+        style={{
+          width: '100%',
+          padding: '10px',
+          marginTop: '4px',
+          borderRadius: '6px',
+          border: '1px solid #555',
+          backgroundCOlor: '#2a2a2a',
+          color: '#eee'
+        }}
+        value={exercise}
+        onChange={(e) => setExercise(e.target.value)}
+      />
 
-      <label>Weight (kg)</label>
-      <input value={weight} onChange={(e) => setWeight(e.target.value)} />
+      <label style={{ display: 'block', marginTop: '10px', color: '#aaa' }} >Weight (kg)</label>
+      <input
+        style={{
+          width: '100%',
+          padding: '10px',
+          marginTop: '4px',
+          borderRadius: '6px',
+          border: '1px solid #555',
+          backgroundCOlor: '#2a2a2a',
+          color: '#eee'
+        }}
+        value={weight}
+        onChange={(e) => setWeight(e.target.value)}
+      />
 
-      <label>Reps</label>
-      <input value={reps} onChange={(e) => setReps(e.target.value)} />
+      <label style={{ display: 'block', marginTop: '10px', color: '#aaa' }} >Reps</label>
+      <input
+        style={{
+          width: '100%',
+          padding: '10px',
+          marginTop: '4px',
+          borderRadius: '6px',
+          border: '1px solid #555',
+          backgroundCOlor: '#2a2a2a',
+          color: '#eee'
+        }}
+        value={reps}
+        onChange={(e) => setReps(e.target.value)}
+      />
 
-      <button onClick={handleSubmit} style={{ marginTop: '10px' }} >Add Set</button>
+      <button
+        onClick={handleSubmit}
+        style={{
+          marginTop: '16px',
+          width: '100%',
+          padding: '12px',
+          backgroundColor: '#6366f1',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '6px',
+          fontWeight: '600',
+          cursor: 'pointer'
+        }}
+      >
+        Add Set
+      </button>
     </div>
   )
 }

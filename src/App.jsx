@@ -15,7 +15,16 @@ function App() {
   }
 
   return (
-    <div style={{ maxWidth: '400px', margin: '40px auto', fontFamily: 'Arial' }} >
+    <div style={{
+      maxWidth: '500px',
+      margin: '40px auto',
+      fontFamily: 'Inter, Arial, sans-serif',
+      padding: '24px',
+      borderRadius: '12px',
+      backgroundColor: '1e1e1e',
+      color: '#eee',
+      boxShadow: '0 0 12px rgba(0, 0, 0, 0.4)'
+    }} >
       <h2>Workout Logger Lite</h2>
 
       <SetForm onAddSet={addSet} />
