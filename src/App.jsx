@@ -6,7 +6,12 @@ function App() {
   const [sets, setSets] = useState([]);
 
   const addSet = (newSet) => {
-    setSets([...sets, newSet]);
+    const setWithTime = {
+      ...newSet,
+      timestamp: new Date().toISOString()
+    };
+    const updatedSets = [setWithTime, ...sets];
+    setSets(updatedSets);
   };
 
   const deleteSet = (index) => {
