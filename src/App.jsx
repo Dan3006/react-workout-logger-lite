@@ -25,6 +25,12 @@ function App() {
     setSets(updatedSets);
   }
 
+  const editSet = (index, updatedSet) => {
+    const updatedSets = sets.map((s, i) => i === index ? updatedSet : s);
+    setSets(updatedSets);
+
+  }
+
   return (
     <div style={{
       maxWidth: '500px',
@@ -52,7 +58,7 @@ function App() {
       </div>
 
       <h3 style={{ marginTop: '20px' }} >Logged Sets</h3>
-      <SetList sets={sets} onDelete={deleteSet} />
+      <SetList sets={sets} onDelete={deleteSet} onEdit={editSet} />
 
     </div>
   );
