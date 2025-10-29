@@ -9,6 +9,11 @@ function App() {
     setSets([...sets, newSet]);
   };
 
+  const deleteSet = (index) => {
+    const updatedSets = sets.filter((_, i) => i !== index);
+    setSets(updatedSets);
+  }
+
   return (
     <div style={{ maxWidth: '400px', margin: '40px auto', fontFamily: 'Arial' }} >
       <h2>Workout Logger Lite</h2>
@@ -16,7 +21,7 @@ function App() {
       <SetForm onAddSet={addSet} />
 
       <h3 style={{ marginTop: '20px' }} >Logged Sets</h3>
-      <SetList sets={sets} />
+      <SetList sets={sets} onDelete={deleteSet} />
 
     </div>
   );
