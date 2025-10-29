@@ -5,6 +5,12 @@ import SetList from "./components/SetList";
 function App() {
   const [sets, setSets] = useState([]);
 
+  const totalSets = sets.length;
+
+  const totalVolume = sets.reduce((sum, s) => {
+    return sum + (Number(s.weight) * Number(s.reps));
+  }, 0);
+
   const addSet = (newSet) => {
     const setWithTime = {
       ...newSet,
@@ -33,6 +39,17 @@ function App() {
       <h2>Workout Logger Lite</h2>
 
       <SetForm onAddSet={addSet} />
+
+      <div style={{
+        marginTop: '20px',
+        padding: '12px',
+        backgroundColor: '#252525',
+        borderRadius: '8px',
+        border: '1px solid #333'
+      }}>
+        <div>Total Sets: {totalSets}</div>
+        <div>Total Volume: {totalVolume}</div>
+      </div>
 
       <h3 style={{ marginTop: '20px' }} >Logged Sets</h3>
       <SetList sets={sets} onDelete={deleteSet} />
