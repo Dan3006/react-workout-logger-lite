@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [exercise, setExercise] = useState('');
+  const [weight, setWeight] = useState('');
+  const [reps, setReps] = useState('');
+  const [sets, setSets] = useState([]);
+
+  const addSet = () => {
+    if (!exercise || !weight || !reps) return;
+
+    const newSet = { exercise, weight, reps };
+    setSets([...sets, newSet]);
+
+    setExercise('');
+    setWeight('');
+    setReps('');
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div style={{ maxWidth: '400px', margin: '40px auto', fontFamily: 'Arial' }} >
+      <h2>Workout Logger Lite</h2>
+
+      <label>Exercise</label>
+      <input value={exercise} onChange={(e) => setExercise(e.target.value)} />
+
+      <label>Weight (kg)</label>
+      <input value={weight} onChange={(e) => setWeight(e.target.value)} />
+
+      <label>Reps</label>
+      <input value={reps} onChange={(e) => setReps(e.target.value)} />
+
+      <button onClick={addSet} style={{ marginTop: '10px' }} >Add Set</button>
+
+      <h3 style={{ marginTop: '20px' }} >Logged Sets</h3>
+      <ul>
+        {sets.map((s, index) => (
+          <li key={index} >
+            {s.exercise} - {s.weight}kg x {s.reps}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default App
