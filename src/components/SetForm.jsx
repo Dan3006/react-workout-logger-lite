@@ -1,12 +1,29 @@
 import { useState } from "react";
 
 function SetForm({ onAddSet }) {
+  const [error, setError] = useState('');
   const [exercise, setExercise] = useState('');
   const [weight, setWeight] = useState('');
   const [reps, setReps] = useState('');
 
+
   const handleSubmit = () => {
-    if (!exercise || !weight || !reps) return;
+    setError('');
+
+    if (!exercise || !weight || !reps) {
+      setError('All fields are required.');
+      return;
+    };
+
+    if (isNaN(weight) || isNaN(reps)) {
+      setError('Weight and reps must be numbers.');
+      return;
+    }
+
+    if (Number(weight) <= 0 || Number(reps) <= 0) {
+      setError('Weight and reps must be greater than zero.');
+      return;
+    }
 
     onAddSet({
       exercise,
@@ -65,6 +82,12 @@ function SetForm({ onAddSet }) {
         value={reps}
         onChange={(e) => setReps(e.target.value)}
       />
+
+      {error && (
+        <div style={{ color: '#ff4d4d', marginTop: '8px' }} >
+          {error}
+        </div>
+      )}
 
       <button
         onClick={handleSubmit}
