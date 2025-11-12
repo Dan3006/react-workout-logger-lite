@@ -27,5 +27,20 @@ A minimal React workout logging application designed to practice frontend develo
 • Exercise presets and filtering
 
 ---
-
 This project is part of my journey toward becoming a full-stack software engineer.
+
+## Phase 1 – Full-Stack Integration
+
+**Status:** ✅ Completed
+
+### Features
+- Added `WorkoutList` component fetching workouts from Django REST API.
+- Configured Axios for HTTP requests.
+- Combined with existing local Workout Logger Lite interface.
+- Works with backend running on `http://127.0.0.1:8000/api/workouts/`.
+
+### Run Locally
+```bash
+npm install
+npm run dev
+
