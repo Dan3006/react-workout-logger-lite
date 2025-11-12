@@ -1,6 +1,7 @@
 import { useState } from "react"
 import SetForm from "./components/SetForm";
 import SetList from "./components/SetList";
+import WorkoutList from "./components/WorkoutList";
 
 function App() {
   const [sets, setSets] = useState([]);
@@ -59,6 +60,8 @@ function App() {
 
       <h3 style={{ marginTop: '20px' }} >Logged Sets</h3>
       <SetList sets={sets} onDelete={deleteSet} onEdit={editSet} />
+
+      <WorkoutList />
 
     </div>
   );
